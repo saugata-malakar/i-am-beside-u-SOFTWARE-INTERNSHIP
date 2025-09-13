@@ -1,0 +1,70 @@
+python -m venv venv
+source venv/bin/activate      # or venv\Scripts\activate on Windows
+pip install -r requirements.txt
+python demo_run.py            # or `python app.py` to start the Gradio UI
+Repo structure
+graphql
+Copy code
+smart-exam-planner/
+├── README.md
+├── requirements.txt
+├── .gitignore
+├── app.py                  # Gradio UI (entrypoint)
+├── demo_run.py             # Quick demo script
+├── db.py                   # DB initialization and session maker
+├── models.py               # SQLAlchemy ORM models (User, PlanSlot)
+├── utils.py                # password hashing + helpers
+├── planner.py              # Planner agent (build_plan)
+├── executor.py             # Executor agent (mark done, reschedule capacity-aware)
+├── ml.py                   # small ML helper for predicting missing hours
+├── rag.py                  # simple TF-IDF retriever (RAG stub)
+├── notify.py               # email/webhook notification helpers
+└── README-EXTRA.md         # optional extra docs
+1) requirements.txt
+text
+Copy code
+gradio>=3.0
+pandas
+numpy
+scikit-learn
+sqlalchemy
+requests
+matplotlib
+python-dateutil
+2) .gitignore
+text
+Copy code
+__pycache__/
+venv/
+*.pyc
+*.db
+*.sqlite
+.env
+/mnt/
+.DS_Store
+3) README.md
+(Short form — you can expand; included later if you want a longer doc)
+
+markdown
+Copy code
+# Smart Exam Prep Planner
+
+AI-assisted study planner: generates daily study chunks from your syllabus, persists per-user plans in SQLite, does capacity-aware rescheduling, supports notifications, and provides a Gradio UI.
+
+## Quick start
+
+1. Create virtualenv and install dependencies:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+Run demo:
+
+bash
+Copy code
+python demo_run.py
+Run the UI:
+
+bash
+Copy code
+python app.py
