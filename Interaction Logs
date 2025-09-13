@@ -1,0 +1,7 @@
+Example Entries:
+
+Timestamp	User Prompt	AI Response
+2025-09-12 23:47	Asked for workflow for AI prototype with multi-agent collaboration	Provided detailed architecture options, including Planner + Executor, external RAG, UI suggestions
+2025-09-13 05:22	Requested GitHub deployment instructions for modular code	Provided step-by-step guidance, including LICENSE, README, git commands, and optional GitHub Actions
+2025-08-10 12:10	Soil mechanics problem	Solved calculation with step-by-step method, defining all terms
+2025-08-02 12:12	Russian doll envelope problem	Provided algorithm, code review, and step-by-step solution
