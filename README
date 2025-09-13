@@ -37,4 +37,82 @@ Supports multiple users, live progress tracking, and notifications.
 ---
 
 ## 📂 Project Structure
+├── part1_ingest.py # Syllabus ingestion
+├── part2_ml.py # ML model for workload prediction
+├── part3_rag.py # Simple RAG retriever
+├── part4_agents.py # Planner + Executor agents
+├── part5_ui.py # Gradio-based UI
+├── db_utils.py # SQLite helpers
+├── requirements.txt # Dependencies
+├── README.md # Documentation
+└── demo_run.py # Example run script
+
+
+---
+
+## ⚡ Installation
+
+1. Clone this repo:
+   ```bash
+   git clone https://github.com/<your-username>/smart-exam-planner.git
+   cd smart-exam-planner
+
+
+Install dependencies:
+
+pip install -r requirements.txt
+
+
+Run the app:
+
+python demo_run.py
+
+🎮 Usage
+
+Login or Register a new account.
+
+Upload your syllabus (txt/PDF) + exam schedule.
+
+Get a personalized study plan.
+
+Mark tasks as Done ✅ or Missed ❌.
+
+View live progress charts 📊.
+
+Receive notifications for deadlines & low progress.
+
+📝 Roadmap
+
+ Google Calendar integration
+
+ Mobile-friendly PWA version
+
+ Cloud deployment (Render/Heroku)
+
+ Support for collaborative group study plans
+
+🤝 Contributing
+
+Pull requests are welcome! For major changes, please open an issue first to discuss your ideas.
+
+📜 License
+
+MIT License
+
+
+---
+
+### 🔹 Excel Sheet (Roadmap Example)
+| Feature | Status | Priority |
+|---------|--------|----------|
+| User accounts | ✅ Done | High |
+| Progress charts | ✅ Done | High |
+| Email notifications | ✅ Done | High |
+| Google Calendar integration | ⏳ Planned | Medium |
+| Mobile UI | ⏳ Planned | Medium |
+| Cloud deployment | ⏳ Planned | Medium |
+
+---
+
+👉 Do you want me to also **generate the `requirements.txt` and system design diagram (architecture)** for this repo? That will make it 100% submission-ready.
 
