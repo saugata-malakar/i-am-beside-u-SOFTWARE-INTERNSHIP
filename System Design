@@ -1,0 +1,110 @@
+System Design Document (SDD)
+A) Architecture
+
+Overview:
+The system is a modular, full-stack Python application with the following layers:
+
+Presentation Layer (UI)
+
+Gradio: Web interface for user interaction (register, login, build plan, load plan, mark tasks, reschedule).
+
+Supports dynamic updates and table visualization of study plans.
+
+Application Layer (Business Logic)
+
+Planner Module (planner.py): Builds the exam preparation plan by splitting topics over available days based on daily hours.
+
+Executor Module (executor.py): Handles marking tasks done, rescheduling missed days, and capacity-aware task redistribution.
+
+ML Module (ml.py): Predicts missing hours in syllabus using a Random Forest Regressor and TF-IDF.
+
+RAG Module (rag.py): Supports simple retrieval of resources via TF-IDF similarity for topics.
+
+Notification Module (notify.py): Email & webhook notifications for task reminders.
+
+Data Layer
+
+Database: SQLite (exam_planner.db) via SQLAlchemy ORM.
+
+Models (models.py):
+
+User – stores credentials, preferences, exam date.
+
+PlanSlot – stores study slots, hours, completion status, and priority.
+
+Utility Layer (utils.py)
+
+Password hashing/verification (PBKDF2-HMAC-SHA256)
+
+Date helper functions
+
+Architecture Diagram (textual):
+
+        +------------------+
+        |   Gradio UI      |
+        +--------+---------+
+                 |
+                 v
+        +------------------+
+        |   Application    |
+        |  - Planner       |
+        |  - Executor      |
+        |  - ML Module     |
+        |  - RAG Module    |
+        |  - Notify Module |
+        +--------+---------+
+                 |
+                 v
+        +------------------+
+        |   Database       |
+        | SQLite + SQLAlchemy|
+        +------------------+
+
+B) Data Design
+
+Entities & Relationships:
+
+Table	Fields	Description
+User	id, username, password_hash, email, webhook_url, daily_hours, exam_date	Stores user info & settings
+PlanSlot	id, user_id, slot_id, date, topic, hours, done, priority, notes	Stores individual study slots
+
+Relationships:
+
+One-to-many: User → PlanSlot (a user can have multiple study slots).
+
+Example of PlanSlot:
+
+date	topic	hours	done	slot_id
+2025-09-15	Calculus	3.0	False	uuid1
+2025-09-15	Algos	1.5	False	uuid2
+C) Component Breakdown
+
+db.py – Database initialization and session management.
+
+models.py – SQLAlchemy ORM models.
+
+utils.py – Utilities (password, date helpers).
+
+ml.py – Machine learning prediction for missing study hours.
+
+planner.py – Algorithm to split syllabus topics across days.
+
+executor.py – Task completion & rescheduling logic.
+
+notify.py – Email and webhook notification service.
+
+rag.py – Resource retrieval module for topic recommendations.
+
+app.py – Gradio web interface tying everything together.
+
+demo_run.py – CLI demo runner for quick testing.
+
+D) Chosen Technologies & Rationale
+Component	Technology/Tool	Reason
+UI	Gradio	Lightweight, fast to prototype, supports tables and input forms
+DB & ORM	SQLite + SQLAlchemy	Simple file-based DB for local storage, ORM simplifies CRUD operations
+Password Hash	PBKDF2-HMAC-SHA256	Secure password storage, industry-standard
+ML	scikit-learn (RandomForestRegressor, TF-IDF)	Lightweight, accurate prediction for small datasets
+Notifications	SMTP + requests	Supports both email & webhooks for reminders
+Scheduling	datetime, timedelta	Native Python library for date calculations, no external dependencies
+Packaging	Modular Python files	Easier to maintain, test, and extend
