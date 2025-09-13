@@ -1,0 +1,17 @@
+date,topic,hours,done,slot_id
+2025-09-15,Calculus: Integrals and Applications,3.0,False,fa5655dc-7146-47b2-a061-fe88793b963d
+2025-09-16,Calculus: Integrals and Applications,3.0,False,ba43064b-4658-426a-a794-838cf0446a69
+2025-09-17,Calculus: Series & Sequences,3.0,False,ea42159c-06d5-4a8c-842b-6e58f185aa9a
+2025-09-18,Calculus: Series & Sequences,1.0,False,7d3a51a4-83d9-4c0e-99e6-03b51b97acaa
+2025-09-18,Linear Algebra: Matrix operations,2.0,False,476d5a6d-7d26-4f0a-af78-4d13259cd6f1
+2025-09-19,Linear Algebra: Matrix operations,3.0,False,73369452-0c5f-4ec1-8bba-f48fb68564d3
+2025-09-20,ML: Classification,3.0,False,79eb1639-fd53-4994-be65-33f3a5994f1c
+2025-09-21,ML: Classification,1.5,False,fe6cff38-1fbf-4adb-92fd-811734db7247
+2025-09-21,ML: Linear Regression,1.5,False,e1c944cd-1670-4544-ab23-ee9b246012e1
+2025-09-22,ML: Linear Regression,3.0,False,11e5ad7c-d698-4a36-8981-e37d3afa7ea9
+2025-09-23,ML: Linear Regression,1.5,False,0dc5372e-aff9-4544-ab5e-78a8086b1d1b
+2025-09-23,Probability: Basics,1.5,False,71dee5e6-0b19-47b7-8205-c1bfecc227a9
+2025-09-24,Probability: Basics,2.5,False,80f72653-e728-49bd-9b63-9afa66620aec
+2025-09-24,Statistics: Hypothesis testing,0.5,False,1dfeae74-4bbe-48b1-b9d8-70de46389362
+2025-09-25,Statistics: Hypothesis testing,3.0,False,750eac0c-e380-4a5a-a971-eb1b6dc9228c
+2025-09-26,Statistics: Hypothesis testing,0.7999999999999998,False,0f3ea730-fab0-4b50-b352-37cb47cfc38c
